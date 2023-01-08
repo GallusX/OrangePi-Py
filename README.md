@@ -1,7 +1,7 @@
 # OrangePi-GpioPy
 ## ДЛЯ ИСПОЛЬЗОВАНИЯ БИБЛИОТЕКИ НЕОБХОДИМО УСТАНОВИТЬ WiringOP
 
-  git clone https://github.com/zhaolei/WiringOP.git 
+    git clone https://github.com/zhaolei/WiringOP.gi
 
   cd WiringOP
 
