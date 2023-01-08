@@ -1,4 +1,4 @@
-# OrangePi3-GpioPy
+# OrangePi-GpioPy
 ДЛЯ ИСПОЛЬЗОВАНИЯ БИБЛИОТЕКИ НЕОБХОДИМО УСТАНОВИТЬ WiringOP
 
 git clone https://github.com/zhaolei/WiringOP.git 
