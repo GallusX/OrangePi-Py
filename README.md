@@ -47,15 +47,14 @@
     gprdown(НОМЕР ПИНА)
 ##ПРМИЕР ИСПОЛЬЗОВАНИЯ ssd1306
 
-    from opigalus import*
-    from opigalluss.display import ssd1306
-    from opigalluss.draw import canvas
-    from PIL import ImageFont, ImageDraw
-    import time
+    from opigalus import* #Импортируем библиотеку
+    from opigalluss.display import ssd1306 #имортируем девайс
+    from opigalluss.draw import canvas #импортируем библиотеку для вывода на исплей
+    from PIL import ImageFont, ImageDraw #импортируем библиотеку которая будет рисовать 
 
-    disp = ssd1306(port=0, address=0x3C, width=128, height=64)  # rev.1 users set port=0
-    with canvas(disp) as draw:
+    disp = ssd1306(port=0, address=0x3C, width=128, height=64)  #инициализируем дисплей
+    with canvas(disp) as draw: #дальше уже работаем с pillow 
         font = ImageFont.load_default()
         font = ImageFont.truetype('/21158.ttf', size=18)
         draw.rectangle((0, 0, 128, 64), outline=0, fill=0)
-        draw.text((0, 0), "MAKS LOH 228", font=font, fill=255)
+        draw.text((0, 0), "Hello world!", font=font, fill=255)
