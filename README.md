@@ -20,7 +20,7 @@
     pip install smbus2
 ## Устанавливаем библиотеку 
 
-    pip install OPiGallus
+    pip install opigallus
 
 Не большая библиотека для обучения
 
