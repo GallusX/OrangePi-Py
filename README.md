@@ -24,9 +24,10 @@
 вводим:
 
      i2cdetect -y 0
-     ![image](https://user-images.githubusercontent.com/109997469/213883773-4279298a-b6df-4503-9e6e-e637b833b0b4.png)
+   ![image](https://user-images.githubusercontent.com/109997469/213883773-4279298a-b6df-4503-9e6e-e637b833b0b4.png)
+   
      i2cdetect -y 1
-     ![image](https://user-images.githubusercontent.com/109997469/213883811-e12ca8b4-7e7f-4477-a6a4-486ea482e288.png)
+   ![image](https://user-images.githubusercontent.com/109997469/213883811-e12ca8b4-7e7f-4477-a6a4-486ea482e288.png)
 везде прочерки потому что к плате ничего не подключено 
 
      
