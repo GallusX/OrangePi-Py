@@ -1,5 +1,5 @@
 # OrangePi-GpioPy
-## ДЛЯ ИСПОЛЬЗОВАНИЯ БИБЛИОТЕКИ НЕОБХОДИМО УСТАНОВИТЬ WiringOP
+## ДЛЯ ИСПОЛЬЗОВАНИЯ БИБЛИОТЕКИ НЕОБХОДИМО УСТАНОВИТЬ WiringOP, i2c-tools
 
     # apt-get update
     # apt-get install -y git
@@ -7,6 +7,9 @@
     # cd wiringOP
     # ./build clean
     # ./build 
+    
+    
+    sudo apt install i2c-tools
 
 после установки проверяем работоспособность
 
