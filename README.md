@@ -22,6 +22,7 @@
 покажет все порты, назначения и состояния
 теперь проверяем i2c-tools
 вводим:
+
      i2cdetect -y 0
      ![image](https://user-images.githubusercontent.com/109997469/213883773-4279298a-b6df-4503-9e6e-e637b833b0b4.png)
      i2cdetect -y 1
