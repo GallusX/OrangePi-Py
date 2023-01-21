@@ -13,13 +13,22 @@
 
 после установки проверяем работоспособность
 
-    gpio readall
+    gpio readall 
     
 Должен выдать список пинов:
 ![Снимок](https://user-images.githubusercontent.com/109997469/213883530-d5d7c2ce-801f-48ce-9de8-79f0aba6fc40.PNG)
 
 
 покажет все порты, назначения и состояния
+теперь проверяем i2c-tools
+вводим:
+     i2cdetect -y 0
+     ![image](https://user-images.githubusercontent.com/109997469/213883773-4279298a-b6df-4503-9e6e-e637b833b0b4.png)
+     i2cdetect -y 1
+     ![image](https://user-images.githubusercontent.com/109997469/213883811-e12ca8b4-7e7f-4477-a6a4-486ea482e288.png)
+везде прочерки потому что к плате ничего не подключено 
+
+     
 ## ДЛЯ ИСПОЛЬЗОВАНИЯ SSD1306 НЕОБХОДИМО УСТАНОВИТЬ 2 БИБЛИОТЕКИ
 
     pip install pillow
