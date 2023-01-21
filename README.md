@@ -32,6 +32,7 @@
    
      i2cdetect -y 1
    ![image](https://user-images.githubusercontent.com/109997469/213883811-e12ca8b4-7e7f-4477-a6a4-486ea482e288.png)
+   
 везде прочерки потому что к плате ничего не подключено 
 
      
