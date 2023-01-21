@@ -19,6 +19,7 @@
     pip install pillow
 
 
+
     pip install smbus2
 ## Устанавливаем библиотеку 
 
