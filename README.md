@@ -14,7 +14,11 @@
     gpio readall
 
 покажет все порты, назначения и состояния
+## ДЛЯ ИСПОЛЬЗОВАНИЯ SSD1306 НЕОБХОДИМО УСТАНОВИТЬ 2 БИБЛИОТЕКИ
 
+    pip install pillow
+    
+    pip install smbus2
 ## Устанавливаем библиотеку 
 
     pip install opigpiogalluss
