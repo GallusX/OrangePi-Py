@@ -20,11 +20,12 @@
     pip install smbus2
 ## Устанавливаем библиотеку 
 
-    pip install opigpiogalluss
+    pip install OPiGallus
 
 Не большая библиотека для обучения
 
-И для простого программирования GPIO выходов на OrangePi на языке Python 
+И для простого программирования GPIO выходов на OrangePi на языке Python
+И управления oled дисплеем ssd1306
 ## Как пользоваться
 Ввыбираем пин для вывода:
 
