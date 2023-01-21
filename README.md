@@ -46,6 +46,7 @@
 
     gprdown(НОМЕР ПИНА)
 ##ПРМИЕР ИСПОЛЬЗОВАНИЯ ssd1306
+
     from opigalus import*
 from opigalluss.display import ssd1306
 from opigalluss.draw import canvas
