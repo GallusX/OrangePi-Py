@@ -1,0 +1,10 @@
+setup.cfg
+setup.py
+opigallus/__init__.py
+opigallus/display.py
+opigallus/draw.py
+opigallus/opigallus.py
+opigallus.egg-info/PKG-INFO
+opigallus.egg-info/SOURCES.txt
+opigallus.egg-info/dependency_links.txt
+opigallus.egg-info/top_level.txt
