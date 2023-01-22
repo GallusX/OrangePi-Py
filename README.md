@@ -96,7 +96,7 @@ sck - sck на orangepi он там один
 
 
 
-## ПРМИЕР ИСПОЛЬЗОВАНИЯ ssd1306
+## ПРИМЕР ИСПОЛЬЗОВАНИЯ ssd1306
 
     from opigallus import* #Импортируем библиотеку
     from opigalluss.display import ssd1306 #имортируем девайс
