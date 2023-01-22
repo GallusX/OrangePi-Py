@@ -59,7 +59,9 @@ sck - sck на orangepi он там один
 
 ### Система armbian
 
-# Система Debian, Ubuntu
+### Система Debian, Ubuntu
+
+
 ## ДЛЯ ИСПОЛЬЗОВАНИЯ SSD1306 НЕОБХОДИМО УСТАНОВИТЬ 2 БИБЛИОТЕКИ
 
     pip install pillow
