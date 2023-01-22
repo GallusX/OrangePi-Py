@@ -1,17 +1,42 @@
 # OrangePi-Py
-## ДЛЯ ИСПОЛЬЗОВАНИЯ БИБЛИОТЕКИ НЕОБХОДИМО УСТАНОВИТЬ WiringOP, i2c-tools
+## Устанавливаем всё необходимое
+WiringOP:
 
      apt-get update
      apt-get install -y git
      git clone https://github.com/orangepi-xunlong/wiringOP.git
      cd wiringOP
      ./build clean
-     ./build 
-    
-    
+     ./build
+     
+I2c-toos:
+
     sudo apt install i2c-tools
 
-после установки проверяем работоспособность
+Библиотеки для python:
+
+    pip install pillow
+    pip install smbus2
+    
+И OpiGallus:
+
+Через pip:
+
+    pip install opigallus
+
+Через git с примерами и шрифтами
+
+     git clone https://github.com/GallusX/OrangePi-Py
+     cd OrangePi-Py
+     python3 setup.py install
+
+Небольшая библиотека для обучения
+
+И для простого программирования GPIO выходов на OrangePi на языке Python
+
+И управления oled дисплеем ssd1306
+    
+## После установки проверяем работоспособность
 
     gpio readall 
     
@@ -81,28 +106,6 @@ sck - sck на orangepi он там один
 ![image](https://user-images.githubusercontent.com/109997469/213907053-fcd40395-d340-4002-b09e-a4cab1bc4565.png)
 
 3с это адресс нашего дисплея
-
-## ДЛЯ ИСПОЛЬЗОВАНИЯ SSD1306 НЕОБХОДИМО УСТАНОВИТЬ 2 БИБЛИОТЕКИ
-
-    pip install pillow
-    pip install smbus2
-## Устанавливаем библиотеку 
-
-Через pip:
-
-    pip install opigallus
-
-Через git с примерами и шрифтами
-
-     git clone https://github.com/GallusX/OrangePi-Py
-     cd OrangePi-Py
-     python3 setup.py install
-
-Небольшая библиотека для обучения
-
-И для простого программирования GPIO выходов на OrangePi на языке Python
-
-И управления oled дисплеем ssd1306
 
 ## Как пользоваться
 Выбираем пин для вывода:
