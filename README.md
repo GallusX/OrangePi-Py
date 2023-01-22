@@ -88,6 +88,7 @@ sck - sck на orangepi он там один
     pip install smbus2
 ## Устанавливаем библиотеку 
 
+Через pip:
     pip install opigallus
 
 Небольшая библиотека для обучения
