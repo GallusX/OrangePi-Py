@@ -158,6 +158,6 @@ sck - sck на orangepi он там один
 
 
 
-По всем вопросам
+По всем вопросам:
 
 Telegram: @Gallusis
