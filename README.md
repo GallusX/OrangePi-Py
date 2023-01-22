@@ -57,9 +57,7 @@ sck - sck на orangepi он там один
 
 ЕСЛИ У ВАС ПОДКЛЮЧЕН ssd1306 И ПОСЛЕ КОМАНДЫ i2cdetect -y 0 ВСЁ РАВНО ВЕЗДЕ ПРОЧЕРКИ НУЖНО ВКЛЮЧИТЬ I2c В СИСТЕМЕ
 
-### Система armbian:
-
-### Система Debian, Ubuntu:
+### Система Debian, Ubuntu, Armbian:
 
 Вводим:
 
@@ -143,3 +141,8 @@ sck - sck на orangepi он там один
         
 ![photo_2023-01-21_12-54-35](https://user-images.githubusercontent.com/109997469/213861709-a8f1a529-b42a-4f00-a1bc-a1e19c210605.jpg)
 
+
+
+По всем вопросам
+
+Telegram: @Gallusis
