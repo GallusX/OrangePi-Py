@@ -127,6 +127,8 @@ sck - sck на orangepi он там один
 
 ## ПРИМЕР ИСПОЛЬЗОВАНИЯ ssd1306
 
+В папке examples есть примеры по работе с ssd1306
+
     from opigallus import* #Импортируем библиотеку
     from opigalluss.display import ssd1306 #имортируем девайс
     from opigalluss.draw import canvas #импортируем библиотеку для вывода на исплей
