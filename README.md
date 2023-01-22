@@ -61,6 +61,9 @@ sck - sck на orangepi он там один
 
 ### Система Debian, Ubuntu:
 
+Вводим:
+
+    sudo orangepi-config
 
 ## ДЛЯ ИСПОЛЬЗОВАНИЯ SSD1306 НЕОБХОДИМО УСТАНОВИТЬ 2 БИБЛИОТЕКИ
 
