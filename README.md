@@ -64,7 +64,20 @@ sck - sck на orangepi он там один
 Вводим:
 
     sudo orangepi-config
+Выбираем System
+![image](https://user-images.githubusercontent.com/109997469/213906914-51f89a4f-5ee3-4221-88d6-2c47605d18d3.png)
+Выбираем Bootenv
+![image](https://user-images.githubusercontent.com/109997469/213906949-f1910652-02a9-4935-b4db-95b8a5d70cc6.png)
+Здесь добавляем строчку 
+     
+     overlays=i2c0 i2c1 i2c2
 
+![image](https://user-images.githubusercontent.com/109997469/213907001-27a01747-ceac-42ec-af10-1ebc0052389d.png)
+Нажимаем save и перезагружаем orangepi 
+
+После перезагрузки вводим i2cdetect -y 0 и получаем
+![image](https://user-images.githubusercontent.com/109997469/213907053-fcd40395-d340-4002-b09e-a4cab1bc4565.png)
+3с это адресс нашего дисплея
 ## ДЛЯ ИСПОЛЬЗОВАНИЯ SSD1306 НЕОБХОДИМО УСТАНОВИТЬ 2 БИБЛИОТЕКИ
 
     pip install pillow
