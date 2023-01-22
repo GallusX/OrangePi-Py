@@ -92,6 +92,12 @@ sck - sck на orangepi он там один
 
     pip install opigallus
 
+Через git с примерами и шрифтами
+
+     git clone https://github.com/GallusX/OrangePi-Py
+     cd OrangePi-Py
+     python3 setup.py install
+
 Небольшая библиотека для обучения
 
 И для простого программирования GPIO выходов на OrangePi на языке Python
