@@ -5,6 +5,7 @@ WiringOP:
      apt-get update
      apt-get install -y git
      apt-get install python3
+     apt-get install pip
      apt-get install python3-dev
      git clone https://github.com/orangepi-xunlong/wiringOP.git
      cd wiringOP
