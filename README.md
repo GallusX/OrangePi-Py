@@ -165,6 +165,12 @@ sck - sck на orangepi он там один
         font = ImageFont.truetype('/НАЗВАНИЕ ШРИФТА', size=18)#Шрифт вы предвадительно скачиваетеи скидываете в системную папку со всеми шрифтами 
         draw.rectangle((0, 0, 128, 64), outline=0, fill=0)#Очищаем поверхность дисплея
         draw.text((0, 0), "Hello world!", font=font, fill=255)#Выводим текст
+       
+------------------------------------
+Изображение выводится так:
+
+        image =Image.open('/Путь к картинке').convert("RGBA")
+        draw.bitmap((0, 0), image, fill=255)
         
 ![photo_2023-01-21_12-54-35](https://user-images.githubusercontent.com/109997469/213861709-a8f1a529-b42a-4f00-a1bc-a1e19c210605.jpg)
 
