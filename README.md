@@ -124,10 +124,13 @@ sck - sck на orangepi он там один
 
 Здесь добавляем строчки
 
-     spi-spidev1
+     spi_spidev1
      param_spidev_spi_bus=0
      param_spidev_spi_cs=0
      param_spidev_max_freq=1000000
+![image](https://user-images.githubusercontent.com/109997469/230782067-76ea013a-6e83-46d6-b4da-6332011303ca.png)
+
+ВАЖНО! На некоторых платах Orangepi только 1 spi смотрите по распиновке и тогда пишите только spi_spidev1(если у вас только 1 spi и вы напишите spi_spidev то ничего работать не будет!!!)
 
 ## Как пользоваться
 Выбираем пин для вывода:
