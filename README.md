@@ -130,7 +130,16 @@ sck - sck на orangepi он там один
      param_spidev_max_freq=1000000
 ![image](https://user-images.githubusercontent.com/109997469/230782067-76ea013a-6e83-46d6-b4da-6332011303ca.png)
 
-ВАЖНО! На некоторых платах Orangepi только 1 spi смотрите по распиновке и тогда пишите только spi_spidev1(если у вас только 1 spi и вы напишите spi_spidev то ничего работать не будет!!!)
+ВАЖНО! На некоторых платах Orangepi только 1 spi смотрите по распиновке(если у вас только 1 spi и вы напишите spi_spidev то ничего работать не будет!!!)
+Если на распиновке 2 spi то пишите: 
+
+     spi_spidev
+     spi_spidev1 
+Если 1 то пишите:
+
+     spi_spidev1
+![image](https://user-images.githubusercontent.com/109997469/230782448-e6fff34f-cd6c-4a65-981b-5188bce39ba4.png)
+(У меня на orangepi3 lts только 1 spi который на распиновке обозначен как spi1 поэтому в bootenv я пишу spi_spidev1)
 Перезагружаем апельсинку командой 
 
      reboot
