@@ -110,6 +110,19 @@ sck - sck на orangepi он там один
 
 3с это адресс нашего дисплея
 
+## ВКЛЮЧАЕМ SPI 
+### Система Debian, Ubuntu, Armbian:
+Вводим:
+
+    sudo orangepi-config
+Выбираем System
+![image](https://user-images.githubusercontent.com/109997469/213906914-51f89a4f-5ee3-4221-88d6-2c47605d18d3.png)
+
+Выбираем Bootenv
+![image](https://user-images.githubusercontent.com/109997469/213906949-f1910652-02a9-4935-b4db-95b8a5d70cc6.png)
+
+Здесь добавляем строчку 
+
 ## Как пользоваться
 Выбираем пин для вывода:
 
