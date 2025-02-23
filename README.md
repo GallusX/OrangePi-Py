@@ -220,4 +220,4 @@ sck - sck на orangepi он там один
 
 По всем вопросам:
 
-Telegram: @Gallusis
+Telegram: @galluis
