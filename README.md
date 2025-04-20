@@ -1,223 +1,203 @@
 # OrangePi-Py
-## Устанавливаем всё необходимое
-WiringOP:
 
-     apt-get update
-     apt-get install -y git
-     apt-get install python3
-     apt-get install pip
-     apt-get install python3-dev
-     git clone https://github.com/orangepi-xunlong/wiringOP.git
-     cd wiringOP
-     ./build clean
-     ./build
-     
-I2c-toos:
+Упрощённая библиотека для работы с GPIO и OLED-дисплеями (SSD1306) на OrangePi через Python.
 
-    sudo apt install i2c-tools
+![GPIO](https://user-images.githubusercontent.com/109997469/213883530-d5d7c2ce-801f-48ce-9de8-79f0aba6fc40.PNG)
 
-Библиотеки для python:
+## Установка
 
-    pip install pillow
-    pip install smbus2
-    
-И OpiGallus:
+### Зависимости
+
+```bash
+apt-get update  
+apt-get install -y git python3 python3-dev pip  
+apt-get install i2c-tools
+```
+
+### WiringOP
+
+```bash
+git clone https://github.com/orangepi-xunlong/wiringOP.git  
+cd wiringOP  
+./build clean  
+./build
+```
+
+### Python-библиотеки
+
+```bash
+pip install pillow smbus2
+```
+
+### Установка OrangePi-Py
 
 Через pip:
 
-    pip install opigallus
+```bash
+pip install opigallus
+```
 
-Через git с примерами и шрифтами
+Или с клонированием репозитория:
 
-     git clone https://github.com/GallusX/OrangePi-Py
-     cd OrangePi-Py
-     python3 setup.py install
+```bash
+git clone https://github.com/GallusX/OrangePi-Py  
+cd OrangePi-Py  
+python3 setup.py install
+```
 
-Небольшая библиотека для обучения
+---
 
-И для простого программирования GPIO выходов на OrangePi на языке Python
+## Проверка GPIO
 
-И управления oled дисплеем ssd1306
-    
-## После установки проверяем работоспособность
+```bash
+gpio readall
+```
 
-    gpio readall 
-    
-Должен выдать список пинов:
-![Снимок](https://user-images.githubusercontent.com/109997469/213883530-d5d7c2ce-801f-48ce-9de8-79f0aba6fc40.PNG)
+---
 
+## Проверка I2C
 
-покажет все порты, назначения и состояния
+```bash
+i2cdetect -y 0  
+i2cdetect -y 1
+```
 
+Если видны прочерки — устройств нет. Если виден `0x3C`, `0x20` или `UU` — устройство подключено.
 
-Теперь проверяем i2c-tools
+---
 
+## Активация I2C
 
-Вводим:
+```bash
+sudo orangepi-config
+```
 
-     i2cdetect -y 0
-   ![image](https://user-images.githubusercontent.com/109997469/213883773-4279298a-b6df-4503-9e6e-e637b833b0b4.png)
-   
-     i2cdetect -y 1
-   ![image](https://user-images.githubusercontent.com/109997469/213883811-e12ca8b4-7e7f-4477-a6a4-486ea482e288.png)
-   
-везде прочерки потому что к плате ничего не подключено (Может ещё появится UU и 30 или 20 это скорее всего будет означать что i2c не включился) 
+- **System → Bootenv**
+- Добавить:
 
-## Подключаем ssd1306 к плате 
+```bash
+overlays=i2c0 i2c1 i2c2
+```
 
-СМОТРИМ РАСАПИНОВКИ ДИСПЛЕЯ И ORANGEPI ВСЁ ПОДКЛЮЧАЕМ ЧИСТО ПО РАСПИНОВКЕ 
+Перезагрузите:
 
-Всё зависит от модели orangepi и ssd1306 на всех моделях распиновки разные
+```bash
+reboot
+```
 
-gnd - на любой gnd orangepi 
+---
 
-vcc - на 3.3v orangepi
+## Активация SPI
 
-sda - sda на orangepi он там один 
+```bash
+sudo orangepi-config
+```
 
-sck - sck на orangepi он там один
+- **System → Bootenv**
+- Добавить:
 
-Это в моем случае 
+```bash
+spi_spidev1  
+param_spidev_spi_bus=0  
+param_spidev_spi_cs=0  
+param_spidev_max_freq=1000000
+```
 
-На некоторых моделях ssd1306 могут быть другие пины и их может быть больше
+Если у вас один SPI, укажите только `spi_spidev1`.
 
-## ВКЛЮЧАЕМ I2C 
+Проверка:
 
-ЕСЛИ У ВАС ПОДКЛЮЧЕН ssd1306 И ПОСЛЕ КОМАНДЫ i2cdetect -y 0 ВСЁ РАВНО ВЕЗДЕ ПРОЧЕРКИ НУЖНО ВКЛЮЧИТЬ I2c В СИСТЕМЕ
+```bash
+ls -l /dev/*spi*
+```
 
-### Система Debian, Ubuntu, Armbian:
+Установка библиотеки:
 
-Вводим:
+```bash
+pip install spidev
+```
 
-    sudo orangepi-config
-Выбираем System
-![image](https://user-images.githubusercontent.com/109997469/213906914-51f89a4f-5ee3-4221-88d6-2c47605d18d3.png)
+---
 
-Выбираем Bootenv
-![image](https://user-images.githubusercontent.com/109997469/213906949-f1910652-02a9-4935-b4db-95b8a5d70cc6.png)
+## Подключение SSD1306
 
-Здесь добавляем строчку 
-     
-     overlays=i2c0 i2c1 i2c2
-     
+| Пин дисплея | Пин OrangePi |
+|-------------|--------------|
+| GND         | GND          |
+| VCC         | 3.3V         |
+| SDA         | SDA          |
+| SCL         | SCL          |
 
-![image](https://user-images.githubusercontent.com/109997469/213907001-27a01747-ceac-42ec-af10-1ebc0052389d.png)
+---
 
-Нажимаем save и перезагружаем orangepi 
+## Пример работы с GPIO
 
-После перезагрузки вводим i2cdetect -y 0 и получаем
-![image](https://user-images.githubusercontent.com/109997469/213907053-fcd40395-d340-4002-b09e-a4cab1bc4565.png)
+```python
+from opigallus import *
 
-3с это адресс нашего дисплея
+gpio_out(13)
+gpio_up(13)
+gpio_down(13)
 
-## ВКЛЮЧАЕМ SPI 
-### Система Debian, Ubuntu, Armbian:
-Вводим:
+gpio_rele(11)
+gpio_rup(11)
+gpio_rdown(11)
 
-    sudo orangepi-config
+gpio_button(15)
+gpio_pull_up(15)
+gpio_pull_down(15)
 
-Выбираем System
-![image](https://user-images.githubusercontent.com/109997469/213906914-51f89a4f-5ee3-4221-88d6-2c47605d18d3.png)
+if butclick(15):
+    print("Нажато!")
+```
 
-Выбираем Bootenv
-![image](https://user-images.githubusercontent.com/109997469/213906949-f1910652-02a9-4935-b4db-95b8a5d70cc6.png)
+---
 
-Здесь добавляем строчки
+## Пример работы с SSD1306
 
-     spi_spidev1
-     param_spidev_spi_bus=0
-     param_spidev_spi_cs=0
-     param_spidev_max_freq=1000000
-![image](https://user-images.githubusercontent.com/109997469/230782067-76ea013a-6e83-46d6-b4da-6332011303ca.png)
+```python
+from opigallus import *
+from opigalluss.display import ssd1306
+from opigalluss.draw import canvas
+from PIL import ImageFont
 
-ВАЖНО! На некоторых платах Orangepi только 1 spi смотрите по распиновке(если у вас только 1 spi и вы напишите spi_spidev то ничего работать не будет!!!)
-Если на распиновке 2 spi то пишите: 
+disp = ssd1306(port=0, address=0x3C, width=128, height=64)
 
-     spi_spidev
-     spi_spidev1 
-Если 1 то пишите:
+with canvas(disp) as draw:
+    font = ImageFont.truetype("/usr/share/fonts/FreeSans.ttf", size=18)
+    draw.text((0, 0), "Hello world!", font=font, fill=255)
+```
 
-     spi_spidev1
-![image](https://user-images.githubusercontent.com/109997469/230782448-e6fff34f-cd6c-4a65-981b-5188bce39ba4.png)
-(У меня на orangepi3 lts только 1 spi который на распиновке обозначен как spi1 поэтому в bootenv я пишу spi_spidev1)
-Перезагружаем апельсинку командой 
+---
 
-     reboot
-После перезагрузки пишем:
+## Вывод изображения
 
-     ls -l /dev/*spi*
-И если вы всё правильно сделали то он должен выдать spi порты( в моем случае это один)
-![image](https://user-images.githubusercontent.com/109997469/230782225-661cc89e-4001-47ed-9e64-026533415297.png)
+```python
+from PIL import Image
+image = Image.open('/path/to/image.png').convert("RGBA")
+draw.bitmap((0, 0), image, fill=255)
+```
 
-И устанавливаем библиотеку spidev для python
+![Пример дисплея](https://user-images.githubusercontent.com/109997469/213861709-a8f1a529-b42a-4f00-a1bc-a1e19c210605.jpg)
 
-     pip install spidev
-## Как пользоваться
-Выбираем пин для вывода:
+---
 
-    gpio_out(НОМЕР ПИНА) 
-Подаем сигнал на пин:
+## Шрифты
 
-    gpio_up(НОМЕР ПИНА)
-Отключаем сигнал на пин:
+Чтобы использовать свои шрифты:
 
-    gpio_down(НОМЕР ПИНА)
-Добавляем реле в систему:
+```bash
+sudo mkdir -p /usr/share/fonts
+sudo cp ./fonts/Ваш_шрифт.ttf /usr/share/fonts/
+```
 
-    gpio_rele(НОМЕР ПИНА)
-Включаем реле:
+---
 
-    gpio_rup(НОМЕР ПИНА)
-Отключаем реле:
+## Обратная связь
 
-    gpio_rdown(НОМЕР ПИНА)
-Добавляем кнопку в систему:
-     
-     gpio_button(НОМЕР ПИНА)
-Включаем подтягивающий резистор на 1:
-     
-     gpio_pull_up(НОМЕР ПИНА)
-Включаем подтягивающий резистор на 0:
+**Telegram:** [@galluis](https://t.me/galluis)
 
-     gpio_pull_down(НОМЕР ПИНА)
-Узнаем значение кнопки для обработчика кнопок:
-     
-     butclick(НОМЕР ПИНА)
+---
 
-## Насчет шрифтов 
-
-
-чтобы менять размер текста на экране (ImageFont.truetype) нужно выбрать и скачать нужный вам шрифт и закинуть в папку /usr/share/fonts
-если такой папки нет создаем её (Один хорошо подходящий шрифт оставил в папке fonts в репозитории просто перенесите его в /usr/share/fonts)
-
-
-
-## ПРИМЕР ИСПОЛЬЗОВАНИЯ ssd1306
-
-В папке examples есть примеры по работе с ssd1306
-
-    from opigallus import* #Импортируем библиотеку
-    from opigalluss.display import ssd1306 #имортируем девайс
-    from opigalluss.draw import canvas #импортируем библиотеку для вывода на исплей
-    from PIL import ImageFont, ImageDraw #импортируем библиотеку которая будет рисовать 
-
-    disp = ssd1306(port=0, address=0x3C, width=128, height=64)  #инициализируем дисплей
-    with canvas(disp) as draw: #дальше уже работаем с pillow 
-        font = ImageFont.load_default()#загружаем дефолтные настройки шрифта
-        font = ImageFont.truetype('/НАЗВАНИЕ ШРИФТА', size=18)#Шрифт вы предвадительно скачиваетеи скидываете в системную папку со всеми шрифтами 
-        draw.rectangle((0, 0, 128, 64), outline=0, fill=0)#Очищаем поверхность дисплея
-        draw.text((0, 0), "Hello world!", font=font, fill=255)#Выводим текст
-       
-------------------------------------
-Изображение выводится так:
-
-        image =Image.open('/Путь к картинке').convert("RGBA")
-        draw.bitmap((0, 0), image, fill=255)
-        
-![photo_2023-01-21_12-54-35](https://user-images.githubusercontent.com/109997469/213861709-a8f1a529-b42a-4f00-a1bc-a1e19c210605.jpg)
-
-
-
-По всем вопросам:
-
-Telegram: @galluis
+> OrangePi-Py — проект для обучения и упрощения управления GPIO и дисплеями на Orange Pi.  
+> Автор: GallusX  
